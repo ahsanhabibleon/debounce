@@ -10,12 +10,16 @@ const debounce = (fn, ms) =>  {
   }
 
   useEffect(() => {
-    const debouncedHandleResize = debounce(() => {
+      
+    //debounced function
+    const debouncedFunction = debounce(() => {
       setWindowWidth(window.innerWidth);
     }, 500);
-    debouncedHandleResize();
-    window.addEventListener("resize", debouncedHandleResize);
+      
+      
+    debouncedFunction();
+    window.addEventListener("resize", debouncedFunction);
     return () => {
-      window.removeEventListener("resize", debouncedHandleResize);
+      window.removeEventListener("resize", debouncedFunction);
     };
   }, []);
